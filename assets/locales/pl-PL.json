@@ -2,6 +2,8 @@
   "something_went_wrong": "Coś poszło nie tak!",
   "color": "Kolor:",
   "car_list": "Lista samochodów",
+  "settings": "Ustawienia",
+  "select_language": "Wybierz język:",
   "server_error_occurred": "Problem z serwerem!",
   "cache_error_occurred": "Problem z pamięcią podręczną!",
   "registration_number": "Numer rejestracyjny:"

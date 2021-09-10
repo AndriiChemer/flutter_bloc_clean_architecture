@@ -2,6 +2,8 @@
   "something_went_wrong": "Something went wrong!",
   "color": "Color:",
   "car_list": "Car list",
+  "settings": "Settings",
+  "select_language": "Select language:",
   "server_error_occurred": "Problem with server!",
   "cache_error_occurred": "Problem with cache!",
   "registration_number": "Register number:"

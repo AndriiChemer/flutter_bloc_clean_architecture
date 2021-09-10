@@ -2,8 +2,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_cars_app/main.dart';
 import 'package:flutter_cars_app/presentation/carlist/bloc/car_list_bloc.dart';
+import 'package:flutter_cars_app/presentation/settings/page/settings_page.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
 import '../../../dependency_injection.dart';
@@ -18,13 +18,12 @@ class CarListPage extends HookWidget {
         centerTitle: true,
         actions: [
           ElevatedButton(onPressed: () {
-            context.setLocale(supportedLocalization[0]);
-          }, child: Icon(Icons.home))
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => SettingsPage()),
+            );
+          }, child: Icon(Icons.settings))
         ],
-
-        leading: ElevatedButton(onPressed: () {
-          context.setLocale(supportedLocalization[1]);
-        }, child: Icon(Icons.home_outlined)),
       ),
 
       body: SafeArea(

@@ -16,9 +16,6 @@ void main() async {
   await EasyLocalization.ensureInitialized();
   await di.initDependencyInjection();
 
-  // runApp(MyApp());
-
-
   runApp(EasyLocalization(
     path: 'assets/locales',
     supportedLocales: supportedLocalization,
