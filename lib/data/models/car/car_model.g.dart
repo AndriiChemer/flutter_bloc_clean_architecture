@@ -7,14 +7,6 @@ part of 'car_model.dart';
 // **************************************************************************
 
 CarModel _$CarModelFromJson(Map<String, dynamic> json) {
-
-  var lat = json['lat'] is String
-      ? double.parse(json['lat'])
-      : (json['lat'] as num).toDouble();
-  var lng = json['lng'] is String
-      ? double.parse(json['lng'])
-      : (json['lng'] as num).toDouble();
-
   return CarModel(
     id: json['_id'] as String,
     brand: json['brand'] as String,
@@ -23,8 +15,8 @@ CarModel _$CarModelFromJson(Map<String, dynamic> json) {
     registration: json['registration'] as String,
     year: json['year'] as String,
     ownerId: json['ownerId'] as String,
-    lat: lat,
-    lng: lng,
+    lat: (json['lat'] as num).toDouble(),
+    lng: (json['lng'] as num).toDouble(),
   );
 }
 

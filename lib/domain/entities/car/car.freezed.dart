@@ -24,8 +24,8 @@ class _$CarTearOff {
       required String registration,
       required String year,
       required String ownerId,
-      required double lat,
-      required double lng}) {
+      required double? lat,
+      required double? lng}) {
     return _Car(
       id: id,
       brand: brand,
@@ -52,8 +52,8 @@ mixin _$Car {
   String get registration => throw _privateConstructorUsedError;
   String get year => throw _privateConstructorUsedError;
   String get ownerId => throw _privateConstructorUsedError;
-  double get lat => throw _privateConstructorUsedError;
-  double get lng => throw _privateConstructorUsedError;
+  double? get lat => throw _privateConstructorUsedError;
+  double? get lng => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CarCopyWith<Car> get copyWith => throw _privateConstructorUsedError;
@@ -71,8 +71,8 @@ abstract class $CarCopyWith<$Res> {
       String registration,
       String year,
       String ownerId,
-      double lat,
-      double lng});
+      double? lat,
+      double? lng});
 }
 
 /// @nodoc
@@ -127,11 +127,11 @@ class _$CarCopyWithImpl<$Res> implements $CarCopyWith<$Res> {
       lat: lat == freezed
           ? _value.lat
           : lat // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
       lng: lng == freezed
           ? _value.lng
           : lng // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
     ));
   }
 }
@@ -149,8 +149,8 @@ abstract class _$CarCopyWith<$Res> implements $CarCopyWith<$Res> {
       String registration,
       String year,
       String ownerId,
-      double lat,
-      double lng});
+      double? lat,
+      double? lng});
 }
 
 /// @nodoc
@@ -206,11 +206,11 @@ class __$CarCopyWithImpl<$Res> extends _$CarCopyWithImpl<$Res>
       lat: lat == freezed
           ? _value.lat
           : lat // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
       lng: lng == freezed
           ? _value.lng
           : lng // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
     ));
   }
 }
@@ -245,9 +245,9 @@ class _$_Car extends _Car {
   @override
   final String ownerId;
   @override
-  final double lat;
+  final double? lat;
   @override
-  final double lng;
+  final double? lng;
 
   @override
   String toString() {
@@ -308,8 +308,8 @@ abstract class _Car extends Car {
       required String registration,
       required String year,
       required String ownerId,
-      required double lat,
-      required double lng}) = _$_Car;
+      required double? lat,
+      required double? lng}) = _$_Car;
   _Car._() : super._();
 
   @override
@@ -327,9 +327,9 @@ abstract class _Car extends Car {
   @override
   String get ownerId => throw _privateConstructorUsedError;
   @override
-  double get lat => throw _privateConstructorUsedError;
+  double? get lat => throw _privateConstructorUsedError;
   @override
-  double get lng => throw _privateConstructorUsedError;
+  double? get lng => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$CarCopyWith<_Car> get copyWith => throw _privateConstructorUsedError;

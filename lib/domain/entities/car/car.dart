@@ -13,7 +13,7 @@ class Car with _$Car {
     required String registration,
     required String year,
     required String ownerId,
-    required double lat,
-    required double lng,
+    required double? lat,
+    required double? lng,
   }) = _Car;
 }

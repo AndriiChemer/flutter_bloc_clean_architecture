@@ -17,9 +17,25 @@ class CarModel with _$CarModel {
     required String ownerId,
     required double lat,
     required double lng,
+    // @JsonKey(fromJson: _dynamicToDouble, toJson: _toDouble) double? lat,
+    // @JsonKey(fromJson: _dynamicToDouble, toJson: _toDouble) double? lng,
   }) = _CarModel;
 
-  factory CarModel.fromMapJson(Map<String, dynamic> map) => _$CarModelFromJson(map);
+  factory CarModel.fromMapJson(Map<String, dynamic> map) {
+    map["lat"] = _dynamicToDouble(map["lat"]);
+    map["lng"] = _dynamicToDouble(map["lat"]);
+    return _$CarModelFromJson(map);
+  }
 
   Map<String, dynamic> toJsonMap() => _$CarModelToJson(this);
+
+  static double? _dynamicToDouble(dynamic number) =>
+      number == null ? null : number is String
+          ? double.parse(number)
+          : number is num
+            ? number.toDouble()
+            : null;
+
+  static double? _toDouble(double? value) =>
+      value ?? null;
 }
