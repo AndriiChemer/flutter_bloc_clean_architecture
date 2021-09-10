@@ -1,0 +1,1 @@
+export 'car/car_model.dart';
