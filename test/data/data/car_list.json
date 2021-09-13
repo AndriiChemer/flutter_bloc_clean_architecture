@@ -1,0 +1,14 @@
+[
+  {
+    "_id": "id",
+    "brand": "Opel",
+    "model": "Astra",
+    "color": "#0fc0fc",
+    "registration": "WA12345",
+    "year": "2005-01-01T00:00:00.000Z",
+    "ownerId": "5e5e3d7fc0ea272d00000824",
+    "lat": 50.754,
+    "lng": 12.2145
+  }
+]
+

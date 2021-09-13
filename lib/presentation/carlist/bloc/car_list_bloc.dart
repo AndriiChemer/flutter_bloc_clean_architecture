@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter_cars_app/core/converters/converters.dart';
+import 'package:flutter_cars_app/data/models/models.dart';
 import 'package:flutter_cars_app/domain/domain.dart';
 import 'package:flutter_cars_app/domain/entities/entities.dart';
 
@@ -12,7 +14,7 @@ class CarListBloc extends Bloc<CarListEvent, CarListState> {
   final GetCarListUseCase getCarListUseCase;
 
   CarListBloc({
-    required this.getCarListUseCase
+    required this.getCarListUseCase,
   }) : super(CarListInitial());
 
   @override
