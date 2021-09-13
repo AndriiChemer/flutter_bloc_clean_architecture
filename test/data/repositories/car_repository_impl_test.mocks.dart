@@ -4,12 +4,15 @@
 
 import 'dart:async' as _i3;
 
+import 'package:flutter_cars_app/core/converters/car_list_converter.dart'
+    as _i7;
 import 'package:flutter_cars_app/core/network/network_info.dart' as _i2;
 import 'package:flutter_cars_app/data/datasource/car_local_data_source.dart'
     as _i4;
 import 'package:flutter_cars_app/data/datasource/car_remote_data_source.dart'
     as _i6;
 import 'package:flutter_cars_app/data/models/car/car_model.dart' as _i5;
+import 'package:flutter_cars_app/domain/entities/entities.dart' as _i8;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: avoid_redundant_argument_values
@@ -73,6 +76,22 @@ class MockCarRemoteDataSource extends _i1.Mock
       (super.noSuchMethod(Invocation.method(#getCarList, []),
               returnValue: Future<List<_i5.CarModel>>.value(<_i5.CarModel>[]))
           as _i3.Future<List<_i5.CarModel>>);
+  @override
+  String toString() => super.toString();
+}
+
+/// A class which mocks [CarListConverter].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockCarListConverter extends _i1.Mock implements _i7.CarListConverter {
+  MockCarListConverter() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  List<_i8.Car> convert(List<_i5.CarModel>? models) =>
+      (super.noSuchMethod(Invocation.method(#convert, [models]),
+          returnValue: <_i8.Car>[]) as List<_i8.Car>);
   @override
   String toString() => super.toString();
 }

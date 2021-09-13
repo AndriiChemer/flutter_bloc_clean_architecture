@@ -1,5 +1,6 @@
 
 import 'package:dartz/dartz.dart';
+import 'package:flutter_cars_app/core/converters/converters.dart';
 import 'package:flutter_cars_app/core/core.dart';
 import 'package:flutter_cars_app/data/datasource/data_sources.dart';
 import 'package:flutter_cars_app/data/models/models.dart';
@@ -11,11 +12,13 @@ import 'package:mockito/mockito.dart';
 
 import 'car_repository_impl_test.mocks.dart';
 
-@GenerateMocks([NetworkInfo, CarLocalDataSource, CarRemoteDataSource])
+@GenerateMocks([NetworkInfo, CarLocalDataSource, CarRemoteDataSource, CarListConverter])
 void main() {
   final mockNetworkInfo = MockNetworkInfo();
   final mockCarLocalDataSource = MockCarLocalDataSource();
   final mockCarRemoteDataSource = MockCarRemoteDataSource();
+  final mockConverter = MockCarListConverter();
+
   late CarRepositoryImpl carRepositoryImpl;
 
   setUp(() {
@@ -23,6 +26,7 @@ void main() {
       networkInfo: mockNetworkInfo,
       localCarDataSource: mockCarLocalDataSource,
       remoteCarDataSource: mockCarRemoteDataSource,
+      converter: mockConverter
     );
   });
 
@@ -52,6 +56,7 @@ void main() {
           () async {
         when(mockNetworkInfo.isConnected).thenAnswer((_) async => true);
         when(mockCarRemoteDataSource.getCarList()).thenAnswer((_) async => carModelList);
+        when(mockConverter.convert(carModelList)).thenReturn(carList);
 
         carRepositoryImpl.getCarList();
 
@@ -67,11 +72,12 @@ void main() {
           when(mockCarRemoteDataSource.getCarList())
               .thenAnswer((_) async => carModelList);
 
+          when(mockConverter.convert(carModelList)).thenReturn(carList);
+
           final result = await carRepositoryImpl.getCarList();
 
           verify(mockCarRemoteDataSource.getCarList());
-
-          expect(result, equals(Right<Failure, List<Car>>(carList)));
+          expect(result, equals(Right(carList)));
         },
       );
 
@@ -113,7 +119,7 @@ void main() {
           final result = await carRepositoryImpl.getCarList();
 
           verify(mockCarLocalDataSource.getCarList());
-          expect(result, equals(Right(carList)));
+          expect(result, equals(Right<Failure, List<Car>>(carList)));
         },
       );
 
