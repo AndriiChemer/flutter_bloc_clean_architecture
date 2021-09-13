@@ -12,10 +12,16 @@ import '../../../dependency_injection.dart';
 import '../widgets/widgets.dart';
 
 class CarListPage extends HookWidget {
+
   @override
   Widget build(BuildContext context) {
+    final carListBloc = getIt.get<CarListBloc>();
+    useEffect(() {
+      carListBloc.add(GetCarList());
+    }, []);
+
     return BlocProvider(
-      create: (context) => getIt.get<CarListBloc>(),
+      create: (context) => carListBloc,
       child: Scaffold(
         appBar: AppBar(
           title: Text(tr("car_list")),
@@ -50,10 +56,6 @@ class CarListPage extends HookWidget {
         ),
       ),
     );
-  }
-
-  void _onSettingsButtonClick() {
-
   }
 
 
